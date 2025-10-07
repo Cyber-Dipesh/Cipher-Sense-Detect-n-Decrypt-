@@ -64,6 +64,17 @@ Run a specific attack
 Try all modes automatically
 ./cryptoDD.py --file samples/sample_xor.txt --auto
 
+🧠 Supported Modes
+Cipher Type	          Detection	Auto Decrypt
+Base64 / Base32	            ✅	✅
+Gzip+Base64	                ✅	✅
+Caesar / ROT	              ✅	✅
+Substitution (AI-tuned)	    ✅	✅
+Vigenère	                  ✅	✅
+Single-byte XOR	            ✅	✅
+AES (Known key)	            ⚙️	⚙️
+Other (binary/hex)	        ✅	✅
+
 
 
 📦 requirements.txt
@@ -89,8 +100,37 @@ CMD ["--help"]
 
 
 
+⚠️ Limitations of Crypto Detect & Decrypt (cryptoDD)
+
+1.Modern strong encryption not breakable
+  The tool cannot brute-force AES, RSA, or other modern strong ciphers without the key. It only detects patterns or weak usage (e.g., ECB repeated blocks) and classical crypto.
+
+2.Heuristic-based detection
+  Detection and “auto mode” rely on heuristics like entropy, Index of Coincidence, or quadgram frequency. This can lead to false positives or missed detections in some ciphertexts.
+
+3.Limited keyspace attacks
+  Substitution solver, Vigenère attacks, and XOR crackers work for short keys or reasonable key lengths. Very long keys may be impractical due to computational limits.
+
+4.Performance considerations
+  Auto mode that chains multiple decodings and attacks can be computationally expensive, especially on large files. Defaults are conservative, but deep recursive analysis may take time.
+
+5.Partial readability only
+  Output plaintexts are filtered based on heuristics (printable ratio, English quadgram score). Non-English or binary plaintext may not be recognized as valid.
+
+6.File size / binary data limitations
+  The tool is designed primarily for text-based ciphertexts or small encrypted files. Large binary blobs may be skipped unless forced.
+
+7.Security disclaimer
+  This tool is intended for educational purposes, CTFs, and authorized security testing only. Using it against unauthorized data is illegal and outside the scope of this project.
+
+8.Limited scope for multi-layered modern encryption
+  While chaining simple encodings works (e.g., Base64 → Gzip → Vigenère), complex layered modern encryptions (AES + RSA + compression + custom obfuscation) may not be fully solvable.
+
+
+
 ⚖️ License
 This project is licensed under the MIT License.
+
 
 👤 Author
 Dipesh Patel
