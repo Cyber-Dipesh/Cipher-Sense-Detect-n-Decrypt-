@@ -29,7 +29,7 @@ It identifies and handles a wide range of encoding and encryption schemes, inclu
 
 ⚙️ Installation
 Clone the repository
-git clone https://github.com/Cyber-Dipesh/cryptoDD.git
+git clone https://github.com/Cyber-Dipesh/Cipher-Sense-Detect-n-Decrypt-.git
 cd cryptoDD
 
 
@@ -82,21 +82,6 @@ numpy
 pytest
 tqdm
 
-
-
-🐳 Dockerfile
-FROM python:3.10-slim
-
-LABEL maintainer="Dipesh Patel <your.email@example.com>"
-LABEL description="Crypto Detect & Decrypt - CTF helper tool"
-
-WORKDIR /app
-COPY . /app
-
-RUN pip install --no-cache-dir -r requirements.txt
-
-ENTRYPOINT ["python3", "cryptoDD.py"]
-CMD ["--help"]
 
 
 
