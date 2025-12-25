@@ -13,6 +13,15 @@ It identifies and handles a wide range of encoding and encryption schemes, inclu
 - AES (with known key or bruteforce pattern)
 - More formats coming soon...
 
+New  Feature  Added !
+- Added interactive main menu with 4 options (Simple, AI, CLAASP, Exit).
+- Implemented 'Option 0' to automatically fix dependency issues on Kali/Debian.
+- Integrated Google Gemini 1.5 Flash API for neural cipher identification.
+- Improved 'Simple Analyze' accuracy using weighted word scoring and CTF dictionary.
+- Added support for Gzip, Base85, and robust padding fixes for Base64/32.
+- Fixed Vigenère and Caesar solvers to prioritize readable English over raw stats.
+- Added color-coded terminal output (Green for success, Red for failure).
+
 ✨ Key Features
 - 🔍 Intelligent cipher detection using entropy, Index of Coincidence (IC), and frequency analysis
 - 🔄 Auto-decrypt mode that recursively explores multi-layered encryption
